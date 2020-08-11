@@ -234,8 +234,8 @@ if __name__=='__main__':
 	# 	makeSmallDatabase(small_artists)
     # for i in artists:
     #     getArtistPopularity(i)
-    genres = ['hip hop', 'rock', 'jazz', 'country', 'pop', 'latin', 'edm']
-    # for g in genres:
-    #     print("Now working on:", g)
-    #     getArtists(g)
-    getArtists('hip hop')
+    genres = ['hip hop', 'rock', 'jazz', 'dance', 'country', 'pop', 'latin', 'edm']
+    for g in genres:
+        print("Now working on:", g)
+        getArtists(g)
+    # getArtists('hip hop')
