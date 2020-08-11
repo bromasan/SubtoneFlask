@@ -11,9 +11,6 @@ from app import db
 from app import spotify_support
 
 
-@app.route('/')
-def index():
-    return app.send_static_file('index.html')
 
 @app.route('/api/register', methods=['GET', 'POST'])
 def register():
