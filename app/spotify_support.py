@@ -66,7 +66,7 @@ def auth_handler(request):
 # Returns 5 song URIs in a list
 def findTrackCorr( artist_name, sp, genre):
     # conn =sqlite3.connect('db.sqlite3')
-    conn = psycopg2.connect("dbname=subtone user=bromasan password=s$i4+P!")
+    conn = psycopg2.connect("postgres://mqoqrgevidbckm:3493a12831192165d630b545b22a6d9bcb3b34da85b99f7ac8b5f103fbc098ff@ec2-52-86-116-94.compute-1.amazonaws.com:5432/danqhipjt3o754", sslmode='require')
     results = sp.search(q=artist_name, limit=50)
     tids = []
 
@@ -163,7 +163,7 @@ def recommend_artists( artist_name, genre):
     sp = spotipy.Spotify(auth=token)
     print("SP", sp)
     # conn =sqlite3.connect('db.sqlite3')
-    conn = psycopg2.connect("dbname=subtone user=bromasan password=s$i4+P!")
+    conn = psycopg2.connect("postgres://mqoqrgevidbckm:3493a12831192165d630b545b22a6d9bcb3b34da85b99f7ac8b5f103fbc098ff@ec2-52-86-116-94.compute-1.amazonaws.com:5432/danqhipjt3o754", sslmode='require')
     print("CONN", conn)
 
     big_df =pd.read_sql("SELECT *  FROM big_artist WHERE name ILIKE '"+artist_name+"'", conn)
