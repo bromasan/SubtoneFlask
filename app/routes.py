@@ -11,7 +11,7 @@ from app import db
 from app import spotify_support
 
 
-@app.route('/api/')
+@app.route('/')
 def index():
     return app.send_static_file('index.html')
 
