@@ -11,11 +11,11 @@ from app import db
 from app import spotify_support
 
 
-@app.route('/')
+@app.route('/api/')
 def index():
     return app.send_static_file('index.html')
 
-@app.route('/register', methods=['GET', 'POST'])
+@app.route('/api/register', methods=['GET', 'POST'])
 def register():
 
     user = request.get_json()
@@ -33,7 +33,7 @@ def register():
     else:
         return {'errors': 'ah shit something happened with registration'}, 400
 
-@app.route('/spot-login', methods=['POST'])
+@app.route('/api/spot-login', methods=['POST'])
 def spot_login():
     user = request.get_json()
     username = user['value']
@@ -49,13 +49,13 @@ def spot_login():
         return {'error':'Please enter your username.'}
 
 
-@app.route('/logged', methods=['POST'])
+@app.route('/api/logged', methods=['POST'])
 def logged():
     print("VALUE OF LOGGED",request.get_json()['value'])
     spotify_support.auth_handler(request.get_json()['value'])
     return {'logged': True}
 
-@app.route('/login', methods=['GET', 'POST'])
+@app.route('/api/login', methods=['GET', 'POST'])
 def login():
 
     user_query = request.get_json()
@@ -73,13 +73,13 @@ def login():
     else:
         return {'errors': "ah shit you couldn't log in"}, 400
 
-@app.route('/logout')
+@app.route('/api/logout')
 @login_required
 def logout():
     logout_user()
     return {"success": 200}
 
-@app.route('/search', methods = ['POST'])
+@app.route('/api/search', methods = ['POST'])
 def search():
     artist = request.get_json()
     name = artist['value']
