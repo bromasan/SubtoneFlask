@@ -12,7 +12,7 @@ import urllib.request
 from sqlalchemy import create_engine
 
 
-SPOTIPY_REDIRECT_URI = 'http://localhost:3000/search'
+SPOTIPY_REDIRECT_URI = 'https://subtoneselector.herokuapp.com/search'
 SPOTIPY_CLIENT_ID = 'c6b73836172b40b2ac90879f9b54271b'
 SPOTIPY_CLIENT_SECRET = 'bced1ccc150b4ee5b65f295b98e33b95'
 CACHE_PATH = 'app/support/'
