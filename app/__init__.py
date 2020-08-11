@@ -8,7 +8,7 @@ from flask_cors import CORS, cross_origin
 
 
 
-app = Flask(__name__, static_folder='./build', static_url_path='/')
+app = Flask(__name__, static_folder='client/build', static_url_path='/')
 app.config.from_object(Config)
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
